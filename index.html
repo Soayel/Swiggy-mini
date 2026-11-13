@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fc8019">
+  <title>Foodie — Telegram Mini App</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div><div class="eyebrow">DELIVERING TO</div><strong id="location">Your location</strong></div>
+    <div class="avatar">F</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow light">GOOD FOOD. GOOD MOOD.</p>
+      <h1>What are you<br>craving today?</h1>
+      <div class="search-wrap">
+        <span>⌕</span>
+        <input id="search" type="search" placeholder="Search dishes or restaurants" autocomplete="off">
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>What's on your mind?</h2></div>
+      <div class="categories" id="categories">
+        <button class="category active" data-category="All"><span>🍽️</span>All</button>
+        <button class="category" data-category="Biryani"><span>🍛</span>Biryani</button>
+        <button class="category" data-category="Pizza"><span>🍕</span>Pizza</button>
+        <button class="category" data-category="Burger"><span>🍔</span>Burger</button>
+        <button class="category" data-category="Dessert"><span>🍰</span>Dessert</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Popular near you</h2><span class="muted">Demo menu</span></div>
+      <div id="food-list" class="food-grid"></div>
+      <p id="empty" class="empty hidden">No matching food found. Try another search.</p>
+    </section>
+
+    <section class="cart-panel" id="cart-panel">
+      <div class="cart-heading"><div><h2>Your cart</h2><span class="muted" id="cart-count">0 items</span></div><button class="text-btn" id="clear-cart">Clear</button></div>
+      <div id="cart-items"><p class="muted">Your cart is empty. Add something tasty!</p></div>
+      <div class="cart-total"><span>Subtotal</span><strong id="subtotal">₹0</strong></div>
+      <button class="primary full" id="checkout" disabled>Continue</button>
+    </section>
+
+    <section class="section checkout hidden" id="checkout-panel">
+      <div class="section-head"><h2>Checkout preview</h2><button class="text-btn" id="back-cart">Back to cart</button></div>
+      <label for="customer-name">Your name</label>
+      <input class="field" id="customer-name" placeholder="Enter your name">
+      <label for="address">Delivery address</label>
+      <textarea class="field" id="address" rows="3" placeholder="Enter delivery address"></textarea>
+      <div class="notice">Demo only: this preview does not send an order to Swiggy or a restaurant.</div>
+      <button class="primary full" id="place-demo">Place demo order</button>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="nav-item selected" id="home-nav"><span>⌂</span>Home</button>
+    <button class="nav-item" id="cart-nav"><span>🛒</span>Cart <b id="nav-count">0</b></button>
+  </nav>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
